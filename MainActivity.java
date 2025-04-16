@@ -1,4 +1,4 @@
-package com.my.newproject2;
+package com.my.newproject;
 
 import android.animation.*;
 import android.app.*;
@@ -30,9 +30,9 @@ import org.json.*;
 
 public class MainActivity extends Activity {
 	
+	private LinearLayout linear3;
+	private LinearLayout linear2;
 	private LinearLayout linear1;
-	private LinearLayout linearCor;
-	private LinearLayout linearSeek;
 	
 	@Override
 	protected void onCreate(Bundle _savedInstanceState) {
@@ -43,26 +43,26 @@ public class MainActivity extends Activity {
 	}
 	
 	private void initialize(Bundle _savedInstanceState) {
+		linear3 = findViewById(R.id.linear3);
+		linear2 = findViewById(R.id.linear2);
 		linear1 = findViewById(R.id.linear1);
-		linearCor = findViewById(R.id.linearCor);
-		linearSeek = findViewById(R.id.linearSeek);
 	}
 	
 	private void initializeLogic() {
-		linearSeek.addView(new _ColorSeekBar(MainActivity.this));
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT));
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setShowAlphaBar(true);
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setMaxPosition((int)255);
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setColorBarPosition((int)10);
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setAlphaBarPosition((int)50);
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setThumbHeight((int)5);
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setBarMargin((int)3);
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setBarHeight((int) 3);
-		((_ColorSeekBar)linearSeek.getChildAt((int)0)).setOnColorChangeListener(new _ColorSeekBar.OnColorChangeListener() {
+		linear1.addView(new _ColorSeekBar(MainActivity.this));
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT));
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setShowAlphaBar(true);
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setColorBarPosition((int)20);
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setAlphaBarPosition((int)50);
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setThumbHeight((int)5);
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setBarMargin((int)5);
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setBarHeight((int) 3);
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setMaxPosition((int)100);
+		((_ColorSeekBar)linear1.getChildAt((int)0)).setOnColorChangeListener(new _ColorSeekBar.OnColorChangeListener() {
 			@Override
 			public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
 				_color_ = color;
-				linearCor.setBackgroundColor(_color_);
+				linear2.setBackgroundColor(_color_);
 			}
 		});
 	}
@@ -843,10 +843,6 @@ public class MainActivity extends Activity {
 			    }
 	}
 	{
-	}
-	
-	public void _load() {
-		
 	}
 	
 	
